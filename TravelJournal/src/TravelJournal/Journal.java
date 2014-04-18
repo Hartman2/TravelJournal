@@ -1,5 +1,52 @@
 package TravelJournal;
 
-public class Journal {
+import java.util.Date;
+
+public interface Journal {
+	
+	/**
+	 * creates a travel log returning an id of said id
+	 * @param destination
+	 * @param date
+	 * @return - id of travel log
+	 */
+	public int createLog(String destination, Date date);
+	
+	/**
+	 * returns travel log given id
+	 * @param id
+	 * @return - travel log
+	 */
+	public TravelLog getLog(int id);
+	
+	/**
+	 * Change the attributes of travel log
+	 * @param t
+	 * @return - true if modification is true. false otherwise
+	 */
+	public boolean modifyLog(TravelLog t);
+	
+	/**
+	 * delete a travel log
+	 * @param id
+	 * @return - true if log is deleted, false otherwise
+	 */
+	public boolean deleteLog(int id);
+	
+	/**
+	 * change name of travel log given new name
+	 * @param name
+	 * @return true if name is changed. false otherwise
+	 */
+	public boolean editName(String name);
+	
+	/**
+	 * creates a new journal?
+	 * @return
+	 */
+	public boolean create();
+	
+	
+	
 
 }
