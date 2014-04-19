@@ -16,8 +16,11 @@ public class MyUsers implements Users {
 
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
-		// TODO Auto-generated method stub
 		
+		DataBase db = new MyDataBase();
+		Journal toEdit = db.getJournal(Journal);
+		toEdit.createLog(destination, date);
+		db.putJournal(toEdit);
 		return 0;
 	}
 

@@ -29,8 +29,7 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public Journal getJournal(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return journals.get(name);
 	}
 
 	@Override
