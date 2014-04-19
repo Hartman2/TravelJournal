@@ -5,7 +5,6 @@ import java.util.Date;
 public interface TravelLogKeeper {
 
 	
-	
 	/**
 	 * login
 	 * @param name
