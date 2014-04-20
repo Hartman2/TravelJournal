@@ -23,7 +23,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
-		// TODO Auto-generated method stub
+		
 		Users theUser = new MyUsers();
 		int logID = theUser.createLog(destination, date, Journal);
 		return logID;
@@ -32,6 +32,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
 		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

@@ -26,8 +26,10 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		TravelLogKeeper keeper = new MyTravelLogKeeper();
+		boolean success = keeper.modifyLog(id, field, toChange);
+		return success;
 	}
 
 	@Override
