@@ -48,7 +48,8 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public boolean putJournal(Journal j) {
-		// TODO Auto-generated method stub
+		String key = j.getName();
+		journals.put(key, j);
 		return false;
 	}
 

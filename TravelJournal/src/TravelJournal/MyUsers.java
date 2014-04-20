@@ -28,8 +28,13 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Journal toEdit = db.getJournal(id);
+		TravelLog tl = toEdit.getLog(0);//need new id field
+		boolean success = toEdit.modifyLog(tl, field, toChange); //needs extra parameters
+		db.putJournal(toEdit);
+		
+		return success;
 	}
 
 	@Override

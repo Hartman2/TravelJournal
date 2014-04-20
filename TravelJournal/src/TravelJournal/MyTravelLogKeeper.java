@@ -38,8 +38,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
 		// TODO Auto-generated method stub
-		
-		return false;
+		Users theUser = new MyUsers();
+		boolean success = theUser.modifyLog(id, field, toChange);
+		return success;
 	}
 
 	@Override

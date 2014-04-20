@@ -1,29 +1,32 @@
 package TravelJournal;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class MyJournal implements Journal {
 
-	ArrayList<TravelLog> travelLogs = new ArrayList<TravelLog>();
+	HashMap<Integer, TravelLog> travelLogs = new HashMap<Integer, TravelLog>();
+	String journalName = "";
 	@Override
 	public int createLog(String destination, Date date) {
 		TravelLog tl = new MyTravelLog();
 		int logID = tl.create(destination, date);
-		travelLogs.add(tl);
+		travelLogs.put(logID, tl);
 		return logID;
 	}
 
 	@Override
 	public TravelLog getLog(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		TravelLog tl = travelLogs.get(id);
+		return tl;
 	}
 
 	@Override
-	public boolean modifyLog(TravelLog t) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modifyLog(TravelLog t, String field, String toChange) {
+		boolean success  = t.modifyTravelLog(field, toChange);
+		
+		return success;
 	}
 
 	@Override
@@ -42,6 +45,12 @@ public class MyJournal implements Journal {
 	public boolean create() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String getName() {
+		
+		return journalName;
 	}
 
 }

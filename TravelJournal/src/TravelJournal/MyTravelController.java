@@ -34,7 +34,7 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
 		
-		TravelLogKeeper keeper = new MyTravelLogKeeper();
+		keeper = new MyTravelLogKeeper();
 		boolean success = keeper.modifyLog(id, field, toChange);
 		return success;
 	}

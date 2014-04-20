@@ -7,11 +7,22 @@ public class MyTravelLog implements TravelLog {
 	String destination = "";
 	int id = 0;
 	Date date;
+	String departurePoint = "";
+	String travelMethod = "";
+	String locationWeather = "";
 	
 	@Override
 	public boolean modifyTravelLog(String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success = true;
+		if(field == "departurePoint")
+			departurePoint = toChange;
+		else if(field == "travelMethod")
+			travelMethod = toChange;
+		else if(field == "locationWeather")
+			locationWeather = toChange;
+		else
+			success = false;
+		return success;
 	}
 
 	@Override
