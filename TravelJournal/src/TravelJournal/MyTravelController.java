@@ -9,7 +9,6 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean login(String name, String password) {
 		
-		TravelLogKeeper keeper = new MyTravelLogKeeper();
 		boolean login = keeper.login(name, password);
 		
 		return login;
@@ -18,9 +17,7 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean logout(String name) {
 
-		MyTravelLogKeeper keeper = new MyTravelLogKeeper();
 		boolean logout = keeper.logout(name);
-		
 		return logout;
 	}
 

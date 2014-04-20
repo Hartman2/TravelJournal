@@ -6,6 +6,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	//holds all of the users registered.
 	MyDataBase data = new MyDataBase();
+	MyUsers currentLoggedIn = null;
 	MyTravelLogKeeper()
 	{
 		
@@ -15,16 +16,21 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	public boolean login(String name, String password) {
 
 		if(data.getUser(name, password) == null){
+			System.out.println("User is not registered in database");
 			return false;
 		}
-		else
+		else{
+		currentLoggedIn = (MyUsers) data.getUser(name, password);	
 		return true;
+		
+		}
 	}
 
 	@Override
 	public boolean logout(String name) {
-		// TODO Auto-generated method stub
-		return false;
+
+		currentLoggedIn = null;
+		return true;
 	}
 
 	@Override
@@ -54,6 +60,11 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean addUser(String name, String password) {
 
+		if(data.getUser(name) != null){
+			System.out.println("Username already exists");
+			return false;
+		}
+		
 		MyUsers user = new MyUsers();
 		user.create(name, password);
 		data.putUser(user);
@@ -63,15 +74,22 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean editUser(String name, String field, String toChange) {
-
-		data.getUser(name).editUser(name, field, toChange);
+		
+		data.getUser(name).editUser(field, toChange);
 		
 		return true;
 	}
 
 	@Override
 	public boolean removeUser(String name) {
-		// TODO Auto-generated method stub
+		
+		if(data.getUser(name) == null){
+			System.out.println("Username doesn't exists");
+			return false;
+		}
+		
+		data.users.remove(data.getUser(name));
+		
 		return false;
 	}
 

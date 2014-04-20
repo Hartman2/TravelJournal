@@ -7,13 +7,6 @@ public interface Users {
 
 	
 	/**
-	 * logout
-	 * @param name
-	 * @return - true if successful logout. false otherwise
-	 */
-	public boolean logout(String name);
-	
-	/**
 	 * creates log
 	 * @param destination
 	 * @param date
@@ -47,14 +40,8 @@ public interface Users {
 	 * @param toChange
 	 * @return - return true if able to change. false otherwise
 	 */
-	public boolean editUser(String name, String field, String toChange);
+	public boolean editUser(String field, String toChange);
 	
-	/**
-	 * remove user from db
-	 * @param name
-	 * @return - return true if user is removed. false otherwise
-	 */
-	public boolean removeUser(String name);
 	/**
 	 * change name of journal
 	 * @param currentName

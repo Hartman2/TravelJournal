@@ -8,7 +8,7 @@ public class MyMain {
 		
 		
 		
-		
+		MyTravelController controller = new MyTravelController();
 		
 		
 		
