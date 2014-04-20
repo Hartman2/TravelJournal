@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class MyTravelController implements TravelController {
 
+	private MyTravelLogKeeper keeper = new MyTravelLogKeeper();
+	
 	@Override
 	public boolean login(String name, String password) {
 		
@@ -25,7 +27,6 @@ public class MyTravelController implements TravelController {
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
 		
-		TravelLogKeeper keeper = new MyTravelLogKeeper();
 		int logID = keeper.createLog(destination, date, Journal);
 		return logID;
 	}
@@ -45,7 +46,6 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean addUser(String name, String password) {
 
-		TravelLogKeeper keeper = new MyTravelLogKeeper();
 		boolean createUser = keeper.addUser(name, password);
 		
 		return createUser;
@@ -54,7 +54,6 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean editUser(String name, String field, String toChange) {
 
-		MyTravelLogKeeper keeper = new MyTravelLogKeeper();
 		boolean editUser = keeper.editUser(name, field, toChange);
 		
 		
@@ -64,7 +63,6 @@ public class MyTravelController implements TravelController {
 	@Override
 	public boolean removeUser(String name) {
 
-		MyTravelLogKeeper keeper = new MyTravelLogKeeper();
 		boolean removeUser = keeper.removeUser(name);
 		
 		return removeUser;
