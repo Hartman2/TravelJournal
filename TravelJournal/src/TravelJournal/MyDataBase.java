@@ -26,7 +26,11 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public Users getUser(String userName) {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i).username.equals(userName)){
+				return users.get(i);
+			}
+		}
 		return null;
 	}
 
@@ -59,5 +63,4 @@ public class MyDataBase implements DataBase {
 		journals.put(key, j);
 		return false;
 	}
-
 }
