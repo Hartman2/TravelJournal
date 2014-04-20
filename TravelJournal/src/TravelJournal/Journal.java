@@ -24,7 +24,7 @@ public interface Journal {
 	 * @param t
 	 * @return - true if modification is true. false otherwise
 	 */
-	public boolean modifyLog(TravelLog t);
+	public boolean modifyLog(TravelLog t, String field, String toChange);
 	
 	/**
 	 * delete a travel log
@@ -39,6 +39,18 @@ public interface Journal {
 	 * @return true if name is changed. false otherwise
 	 */
 	public boolean editName(String name);
+	
+	/**
+	 * a way to get the name of the journal
+	 * @return the name of the journal
+	 */
+	public String getName();
+	
+	/**
+	 * a way to get the id of the journal
+	 * @return the id of the journal
+	 */
+	public int getID();
 	
 	/**
 	 * creates a new journal?

@@ -29,7 +29,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
-		// TODO Auto-generated method stub
+		
 		Users theUser = new MyUsers();
 		int logID = theUser.createLog(destination, date, Journal);
 		return logID;
@@ -38,13 +38,17 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
 		// TODO Auto-generated method stub
-		return false;
+		Users theUser = new MyUsers();
+		boolean success = theUser.modifyLog(id, field, toChange);
+		return success;
 	}
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
 		// TODO Auto-generated method stub
-		return false;
+		Users theUser = new MyUsers();
+		boolean delete = theUser.deleteLog(id, jid);
+		return delete;
 	}
 
 	@Override
@@ -73,8 +77,10 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Users theUser = new MyUsers();
+		boolean change = theUser.nameJournal(currentName, newName);
+		return change;
 	}
 
 	@Override

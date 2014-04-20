@@ -1,47 +1,66 @@
 package TravelJournal;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class MyJournal implements Journal {
 
-	ArrayList<TravelLog> travelLogs = new ArrayList<TravelLog>();
+	HashMap<Integer, TravelLog> travelLogs = new HashMap<Integer, TravelLog>();
+	String journalName = "";
+	int journalID = 0;
 	@Override
 	public int createLog(String destination, Date date) {
 		TravelLog tl = new MyTravelLog();
 		int logID = tl.create(destination, date);
-		travelLogs.add(tl);
+		travelLogs.put(logID, tl);
 		return logID;
 	}
 
 	@Override
 	public TravelLog getLog(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		TravelLog tl = travelLogs.get(id);
+		return tl;
 	}
 
 	@Override
-	public boolean modifyLog(TravelLog t) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modifyLog(TravelLog t, String field, String toChange) {
+		boolean success  = t.modifyTravelLog(field, toChange);
+		
+		return success;
 	}
 
 	@Override
 	public boolean deleteLog(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean delete = travelLogs.remove(id) != null;
+		return delete;
 	}
 
 	@Override
 	public boolean editName(String name) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		journalName = name;
+		
+		return true;
 	}
 
 	@Override
 	public boolean create() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String getName() {
+		
+		return journalName;
+	}
+
+	@Override
+	public int getID() {
+		
+		return journalID;
 	}
 
 }

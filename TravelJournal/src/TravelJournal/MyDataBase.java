@@ -1,8 +1,9 @@
 package TravelJournal;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
+
 
 public class MyDataBase implements DataBase {
 
@@ -42,13 +43,20 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public Journal getJournal(int id) {
-		// TODO Auto-generated method stub
+		
+		Collection<Journal> theJournal = journals.values();
+		for(Journal j : theJournal)
+		{
+			if(j.getID() == id)
+				return j;
+		}
 		return null;
 	}
 
 	@Override
 	public boolean putJournal(Journal j) {
-		// TODO Auto-generated method stub
+		String key = j.getName();
+		journals.put(key, j);
 		return false;
 	}
 

@@ -33,14 +33,17 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		keeper = new MyTravelLogKeeper();
+		boolean success = keeper.modifyLog(id, field, toChange);
+		return success;
 	}
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean delete = keeper.deleteLog(id, jid);
+		return delete;
 	}
 
 	@Override
@@ -70,8 +73,10 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean reName = keeper.nameJournal(currentName, newName);
+		
+		return reName;
 	}
 
 	@Override

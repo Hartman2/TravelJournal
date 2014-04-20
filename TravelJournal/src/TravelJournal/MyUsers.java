@@ -28,13 +28,20 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Journal toEdit = db.getJournal(id);
+		TravelLog tl = toEdit.getLog(0);//need new id field
+		boolean success = toEdit.modifyLog(tl, field, toChange); //needs extra parameters
+		db.putJournal(toEdit);
+		
+		return success;
 	}
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
+
+		Journal j = db.getJournal(jid);
+		j.deleteLog(id);
 		return false;
 	}
 
@@ -52,8 +59,11 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Journal j = db.getJournal(currentName);
+		boolean change = j.editName(newName);
+		db.putJournal(j);
+		return change;
 	}
 
 	@Override
