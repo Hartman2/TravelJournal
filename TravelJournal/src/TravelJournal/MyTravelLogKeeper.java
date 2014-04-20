@@ -77,8 +77,10 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Users theUser = new MyUsers();
+		boolean change = theUser.nameJournal(currentName, newName);
+		return change;
 	}
 
 	@Override

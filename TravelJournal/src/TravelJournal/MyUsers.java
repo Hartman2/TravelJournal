@@ -59,8 +59,11 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Journal j = db.getJournal(currentName);
+		boolean change = j.editName(newName);
+		db.putJournal(j);
+		return change;
 	}
 
 	@Override

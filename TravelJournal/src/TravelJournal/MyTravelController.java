@@ -73,8 +73,10 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean reName = keeper.nameJournal(currentName, newName);
+		
+		return reName;
 	}
 
 	@Override

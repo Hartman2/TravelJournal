@@ -39,8 +39,10 @@ public class MyJournal implements Journal {
 
 	@Override
 	public boolean editName(String name) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		journalName = name;
+		
+		return true;
 	}
 
 	@Override
