@@ -6,15 +6,11 @@ import java.util.HashMap;
 public class MyUsers implements Users {
 	String username;
 	String password;
+	String field;
 	private MyDataBase db = new MyDataBase();
 	MyUsers()
 	{
 		
-	}
-	@Override
-	public boolean logout(String name) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -46,14 +42,9 @@ public class MyUsers implements Users {
 	}
 
 	@Override
-	public boolean editUser(String name, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean editUser(String field, String toChange) {
 
-	@Override
-	public boolean removeUser(String name) {
-		// TODO Auto-generated method stub
+		this.field = toChange;
 		return false;
 	}
 
