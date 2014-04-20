@@ -1,9 +1,12 @@
 package TravelJournal;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class MyUsers implements Users {
-
+	String username;
+	String password;
+	private MyDataBase db = new MyDataBase();
 	MyUsers()
 	{
 		
@@ -17,7 +20,6 @@ public class MyUsers implements Users {
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
 		
-		DataBase db = new MyDataBase();
 		Journal toEdit = db.getJournal(Journal);
 		toEdit.createLog(destination, date);
 		db.putJournal(toEdit);
@@ -32,12 +34,6 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addUser(String name, String password) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -80,7 +76,10 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean create(String name, String password) {
-		// TODO Auto-generated method stub
+		
+		username = name;
+		this.password = password;
+		
 		return false;
 	}
 
@@ -88,6 +87,6 @@ public class MyUsers implements Users {
 	public boolean modify(String field, String change) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
+	}	
+	
 }

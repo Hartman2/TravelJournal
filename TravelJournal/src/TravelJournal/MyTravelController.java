@@ -4,22 +4,29 @@ import java.util.Date;
 
 public class MyTravelController implements TravelController {
 
+	private MyTravelLogKeeper keeper = new MyTravelLogKeeper();
+	
 	@Override
 	public boolean login(String name, String password) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		TravelLogKeeper keeper = new MyTravelLogKeeper();
+		boolean login = keeper.login(name, password);
+		
+		return login;
 	}
 
 	@Override
 	public boolean logout(String name) {
-		// TODO Auto-generated method stub
-		return false;
+
+		MyTravelLogKeeper keeper = new MyTravelLogKeeper();
+		boolean logout = keeper.logout(name);
+		
+		return logout;
 	}
 
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
 		
-		TravelLogKeeper keeper = new MyTravelLogKeeper();
 		int logID = keeper.createLog(destination, date, Journal);
 		return logID;
 	}
@@ -38,20 +45,27 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean addUser(String name, String password) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean createUser = keeper.addUser(name, password);
+		
+		return createUser;
 	}
 
 	@Override
 	public boolean editUser(String name, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean editUser = keeper.editUser(name, field, toChange);
+		
+		
+		return editUser;
 	}
 
 	@Override
 	public boolean removeUser(String name) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean removeUser = keeper.removeUser(name);
+		
+		return removeUser;
 	}
 
 	@Override
