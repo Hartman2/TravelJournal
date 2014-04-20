@@ -39,13 +39,6 @@ public interface Users {
 	 */
 	public boolean deleteLog(int id, int jid);
 	
-	/**
-	 * add a new user. 
-	 * @param name
-	 * @param password
-	 * @return - returns true if a new user is registered. false otherwise
-	 */
-	public boolean addUser(String name, String password);
 	
 	/**
 	 * change user information
