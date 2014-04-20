@@ -41,8 +41,9 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean delete = keeper.deleteLog(id, jid);
+		return delete;
 	}
 
 	@Override

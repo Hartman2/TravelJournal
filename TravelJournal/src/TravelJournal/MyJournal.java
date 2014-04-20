@@ -7,6 +7,7 @@ public class MyJournal implements Journal {
 
 	HashMap<Integer, TravelLog> travelLogs = new HashMap<Integer, TravelLog>();
 	String journalName = "";
+	int journalID = 0;
 	@Override
 	public int createLog(String destination, Date date) {
 		TravelLog tl = new MyTravelLog();
@@ -31,8 +32,9 @@ public class MyJournal implements Journal {
 
 	@Override
 	public boolean deleteLog(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean delete = travelLogs.remove(id) != null;
+		return delete;
 	}
 
 	@Override
@@ -51,6 +53,12 @@ public class MyJournal implements Journal {
 	public String getName() {
 		
 		return journalName;
+	}
+
+	@Override
+	public int getID() {
+		
+		return journalID;
 	}
 
 }

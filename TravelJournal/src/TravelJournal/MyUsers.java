@@ -39,7 +39,9 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
+
+		Journal j = db.getJournal(jid);
+		j.deleteLog(id);
 		return false;
 	}
 

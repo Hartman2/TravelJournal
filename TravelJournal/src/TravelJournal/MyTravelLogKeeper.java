@@ -46,7 +46,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean deleteLog(int id, int jid) {
 		// TODO Auto-generated method stub
-		return false;
+		Users theUser = new MyUsers();
+		boolean delete = theUser.deleteLog(id, jid);
+		return delete;
 	}
 
 	@Override

@@ -47,6 +47,12 @@ public interface Journal {
 	public String getName();
 	
 	/**
+	 * a way to get the id of the journal
+	 * @return the id of the journal
+	 */
+	public int getID();
+	
+	/**
 	 * creates a new journal?
 	 * @return
 	 */
