@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class MyTravelLogKeeper implements TravelLogKeeper {
 
+	//holds all of the users registered.
+	MyDataBase data = new MyDataBase();
 	MyTravelLogKeeper()
 	{
 		
@@ -11,8 +13,12 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean login(String name, String password) {
-		// TODO Auto-generated method stub
-		return false;
+
+		if(data.getUser(name, password) == null){
+			return false;
+		}
+		else
+		return true;
 	}
 
 	@Override
@@ -44,14 +50,20 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean addUser(String name, String password) {
-		// TODO Auto-generated method stub
-		return false;
+
+		MyUsers user = new MyUsers();
+		user.create(name, password);
+		data.putUser(user);
+		
+		return true;
 	}
 
 	@Override
 	public boolean editUser(String name, String field, String toChange) {
-		// TODO Auto-generated method stub
-		return false;
+
+		data.getUser(name).editUser(name, field, toChange);
+		
+		return true;
 	}
 
 	@Override

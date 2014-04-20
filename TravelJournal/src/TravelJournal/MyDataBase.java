@@ -1,17 +1,25 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class MyDataBase implements DataBase {
 
 	HashMap<String, Journal> journals = new HashMap<String, Journal>();
+	ArrayList<MyUsers> users = new ArrayList<MyUsers>(); 
 	MyDataBase()
 	{
 		
 	}
 	@Override
 	public Users getUser(String name, String password) {
-		// TODO Auto-generated method stub
+
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i).password.equals(password) && users.get(i).username.equals(name)){
+				return users.get(i);
+			}
+		}
 		return null;
 	}
 
@@ -23,8 +31,8 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public boolean putUser(Users u) {
-		// TODO Auto-generated method stub
-		return false;
+		users.add((MyUsers) u);
+		return true;
 	}
 
 	@Override
