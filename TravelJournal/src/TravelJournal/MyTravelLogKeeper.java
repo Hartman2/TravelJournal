@@ -36,24 +36,24 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
 		
-		Users theUser = new MyUsers();
-		int logID = theUser.createLog(destination, date, Journal);
+		//Users theUser = new MyUsers();
+		int logID = currentLoggedIn.createLog(destination, date, Journal);
 		return logID;
 	}
 
 	@Override
 	public boolean modifyLog(int id, String field, String toChange) {
-		// TODO Auto-generated method stub
-		Users theUser = new MyUsers();
-		boolean success = theUser.modifyLog(id, field, toChange);
+		
+		//Users theUser = new MyUsers();
+		boolean success = currentLoggedIn.modifyLog(id, field, toChange);
 		return success;
 	}
 
 	@Override
 	public boolean deleteLog(int id, int jid) {
-		// TODO Auto-generated method stub
-		Users theUser = new MyUsers();
-		boolean delete = theUser.deleteLog(id, jid);
+		
+		//Users theUser = new MyUsers();
+		boolean delete = currentLoggedIn.deleteLog(id, jid);
 		return delete;
 	}
 
@@ -96,8 +96,8 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
 		
-		Users theUser = new MyUsers();
-		boolean change = theUser.nameJournal(currentName, newName);
+		//Users theUser = new MyUsers();
+		boolean change = currentLoggedIn.nameJournal(currentName, newName);
 		return change;
 	}
 
