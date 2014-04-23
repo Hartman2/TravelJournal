@@ -32,16 +32,6 @@ public interface Users {
 	 */
 	public boolean deleteLog(int id, int jid);
 	
-	
-	/**
-	 * change user information
-	 * @param name
-	 * @param field
-	 * @param toChange
-	 * @return - return true if able to change. false otherwise
-	 */
-	public boolean editUser(String field, String toChange);
-	
 	/**
 	 * change name of journal
 	 * @param currentName

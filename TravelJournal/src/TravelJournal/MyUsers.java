@@ -40,14 +40,6 @@ public class MyUsers implements Users {
 		j.deleteLog(id);
 		return false;
 	}
-
-	@Override
-	public boolean editUser(String field, String toChange) {
-
-		this.field = toChange;
-		return false;
-	}
-
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
 		
@@ -86,8 +78,10 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean modify(String field, String change) {
-		// TODO Auto-generated method stub
-		return false;
+
+		this.field = change;
+
+		return true;
 	}	
 	
 }
