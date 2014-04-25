@@ -10,6 +10,8 @@ public class MyTravelLog implements TravelLog {
 	String departurePoint = "";
 	String travelMethod = "";
 	String locationWeather = "";
+	int distance = 0;
+	int myRating = 0;
 	
 	@Override
 	public boolean modifyTravelLog(String field, String toChange) {
@@ -32,6 +34,31 @@ public class MyTravelLog implements TravelLog {
 		this.date = date;
 		id++;
 		return id;
+	}
+	
+	@Override
+	public String getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TravelLog createNew(String destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getDistance() {
+		
+		return distance;
+	}
+
+	@Override
+	public boolean rateTrip(int rating) {
+		
+		myRating = rating;
+		return true;
 	}
 
 }

@@ -1,6 +1,7 @@
 package TravelJournal;
 
 import java.util.Date;
+import java.util.List;
 
 public class MyTravelController implements TravelController {
 
@@ -78,13 +79,13 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean modifyLog(TravelLog t) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean deleteLog(int id) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -93,5 +94,78 @@ public class MyTravelController implements TravelController {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public Journal createJournal() {
+		
+		Journal j = keeper.createJournal();
+		
+		return j;
+	}
+
+	@Override
+	public List<TravelLog> viewAllLogs() {
+		
+		List<TravelLog> tl = keeper.viewAllLogs();
+		return tl;
+	}
+
+	@Override
+	public String viewData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addWish(String destination) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean planTrip(String destination) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int viewTripDistance(int tid, int jid) {
+		
+		int distance = keeper.viewTripDistance(tid, jid);
+		return distance;
+	}
+
+	@Override
+	public List<TravelLog> sortDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TravelLog> sortRating() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addAttributes(String attribute) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean rateTrip(int jid, int tid, int rating) {
+		
+		boolean rate = keeper.rateTrip(jid, tid, rating);
+		return rate;
+	}
+
+	@Override
+	public boolean deleteJournal(int id) {
+		
+		boolean delete = keeper.deleteJournal(id);
+		return delete;
+	}
+
 
 }

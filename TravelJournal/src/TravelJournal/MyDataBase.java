@@ -3,6 +3,7 @@ package TravelJournal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class MyDataBase implements DataBase {
@@ -42,19 +43,20 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public Journal getJournal(String name) {
-		return journals.get(name);
+		//return journals.get(name);
+		Collection<Journal> theJournal = journals.values();
+		for(Journal j : theJournal)
+		{
+			if(j.getName().equals(name))
+				return j;
+		}
+		return null;
 	}
 
 	@Override
 	public Journal getJournal(int id) {
 		
-		Collection<Journal> theJournal = journals.values();
-		for(Journal j : theJournal)
-		{
-			if(j.getID() == id)
-				return j;
-		}
-		return null;
+		return journals.get(id);
 	}
 
 	@Override
@@ -62,5 +64,32 @@ public class MyDataBase implements DataBase {
 		String key = j.getName();
 		journals.put(key, j);
 		return false;
+	}
+	
+	@Override
+	public List<Journal> getAllJournals() {
+		
+		Collection<Journal> theJournal = journals.values();
+		List<Journal> j = (List<Journal>) theJournal;
+		return j;
+	}
+	@Override
+	public boolean storeWishList() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean storeFutureTrip(TravelLog tl) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean removeJournal(int id) {
+		
+		Journal j = journals.remove(id);
+		if(j == null)
+			return false;
+		else
+			return true;
 	}
 }
