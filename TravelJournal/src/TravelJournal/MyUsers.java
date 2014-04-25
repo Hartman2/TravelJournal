@@ -1,7 +1,9 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class MyUsers implements Users {
 	String username;
@@ -83,5 +85,89 @@ public class MyUsers implements Users {
 
 		return true;
 	}	
+	
+	@Override
+	public List<TravelLog> viewAllLogs() {
+		
+		List<Journal> journals = db.getAllJournals();
+		List<TravelLog> tl = new ArrayList<TravelLog>();
+		for(Journal j : journals )
+		{
+			tl.addAll(j.getAllLogs());
+		}
+		
+		return tl;
+	}
+
+	@Override
+	public String viewData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addWish(String destination) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean planTrip(String destination) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int viewTripDistance(int tid, int jid) {
+		// TODO Auto-generated method stub
+		Journal j = db.getJournal(jid);
+		TravelLog tl = j.getLog(tid);
+		int distance = tl.getDistance();
+		return distance;
+	}
+
+	@Override
+	public List<TravelLog> sortDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TravelLog> sortRating() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addAttributes(String attribute) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Journal createJournalAlt() {
+		// TODO Auto-generated method stub
+		Journal j = new MyJournal();
+		int id = j.create();
+		db.putJournal(j);
+		return j;
+	}
+
+	@Override
+	public boolean rateTrip(int jid, int tid, int rating) {
+	
+		Journal j = db.getJournal(jid);
+		TravelLog tl = j.getLog(tid);
+		boolean rate = tl.rateTrip(rating);
+		return rate;
+	}
+
+	@Override
+	public boolean deleteJournal(int id) {
+		
+		boolean delete = db.removeJournal(id);
+		return delete;
+	}	
+	
 	
 }
