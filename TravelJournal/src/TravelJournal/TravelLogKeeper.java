@@ -110,7 +110,7 @@ public interface TravelLogKeeper {
 	 * Allows user to view all the different data from the travel logs
 	 * @return - the data as a string
 	 */
-	public String viewData();
+	public int viewData();
 	
 	/**
 	 * Allows the User to add wish destinations

@@ -26,7 +26,7 @@ public interface TravelLog {
 	 * retrieves all data from the log
 	 * @return - data in the format of a string
 	 */
-	String getData();
+	public int getData();
 	
 	/**
 	 * Allows the user to create a new log with just destination, to be used for 

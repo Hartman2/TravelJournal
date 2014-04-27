@@ -37,9 +37,9 @@ public class MyTravelLog implements TravelLog {
 	}
 	
 	@Override
-	public String getData() {
+	public int getData() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override

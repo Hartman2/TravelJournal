@@ -129,9 +129,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	}
 
 	@Override
-	public String viewData() {
+	public int viewData() {
 
-		String data = currentLoggedIn.viewData();
+		int data = currentLoggedIn.viewData();
 		return data;
 	}
 

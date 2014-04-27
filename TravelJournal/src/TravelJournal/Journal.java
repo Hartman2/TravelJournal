@@ -69,7 +69,7 @@ public interface Journal {
 	 * retrieves all data from all travel logs
 	 * @return - string of data from all travel logs
 	 */
-	String getAllData();
+	public int getAllData();
 	
 	/**
 	 * allows the user to sort travel logs

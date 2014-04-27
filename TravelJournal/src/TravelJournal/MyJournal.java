@@ -75,9 +75,15 @@ public class MyJournal implements Journal {
 	}
 
 	@Override
-	public String getAllData() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getAllData() {
+		
+		int distanceTraveledInJournal= 0;
+		List<TravelLog> logs = getAllLogs();
+		for(int i = 0; i < logs.size(); i++){
+			distanceTraveledInJournal = distanceTraveledInJournal + logs.get(i).getData();
+		}
+			
+		return distanceTraveledInJournal;
 	}
 
 	@Override

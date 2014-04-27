@@ -114,9 +114,9 @@ public class MyTravelController implements TravelController {
 	
 
 	@Override
-	public String viewData() {
+	public int viewData() {
 
-		String data = keeper.viewData();
+		int data = keeper.viewData();
 		return data;
 	}
 
