@@ -103,29 +103,35 @@ public class MyTravelController implements TravelController {
 		return j;
 	}
 
+	
+	/*********************ITERANTION 2 ********************************************/
 	@Override
 	public List<TravelLog> viewAllLogs() {
 		
 		List<TravelLog> tl = keeper.viewAllLogs();
 		return tl;
 	}
+	
 
 	@Override
 	public String viewData() {
-		// TODO Auto-generated method stub
-		return null;
+
+		String data = keeper.viewData();
+		return data;
 	}
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean wish = keeper.addWish(destination);
+		return wish;
 	}
 
 	@Override
 	public boolean planTrip(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean plan = keeper.planTrip(destination);
+		return plan;
 	}
 
 	@Override
@@ -149,8 +155,9 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public boolean addAttributes(String attribute) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean addAttribute = keeper.addAttributes(attribute);
+		return addAttribute;
 	}
 
 	@Override

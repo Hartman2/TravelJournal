@@ -119,6 +119,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/*********************ITERANTION 2 ********************************************/
 
 	@Override
 	public List<TravelLog> viewAllLogs() {
@@ -129,20 +130,23 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public String viewData() {
-		// TODO Auto-generated method stub
-		return null;
+
+		String data = currentLoggedIn.viewData();
+		return data;
 	}
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean wish = currentLoggedIn.addWish(destination);
+		return wish;
 	}
 
 	@Override
 	public boolean planTrip(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean plan = currentLoggedIn.planTrip(destination);
+		return plan;
 	}
 
 	@Override
@@ -166,8 +170,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean addAttributes(String attribute) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean addAttribute = currentLoggedIn.addAttributes(attribute);
+		return addAttribute;
 	}
 
 	@Override
