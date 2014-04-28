@@ -10,6 +10,7 @@ public class MyDataBase implements DataBase {
 
 	HashMap<String, Journal> journals = new HashMap<String, Journal>();
 	ArrayList<MyUsers> users = new ArrayList<MyUsers>(); 
+	ArrayList<String> wishList = new ArrayList<String>();
 	MyDataBase()
 	{
 		
@@ -74,9 +75,9 @@ public class MyDataBase implements DataBase {
 		return j;
 	}
 	@Override
-	public boolean storeWishList() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean storeWishList(String destination) {
+		boolean wish = wishList.add(destination);
+		return wish;
 	}
 	@Override
 	public boolean storeFutureTrip(TravelLog tl) {
@@ -91,5 +92,10 @@ public class MyDataBase implements DataBase {
 			return false;
 		else
 			return true;
+	}
+	@Override
+	public List<String> viewWishList() {
+		
+		return wishList;
 	}
 }

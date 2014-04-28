@@ -86,6 +86,8 @@ public class MyUsers implements Users {
 		return true;
 	}	
 	
+	/*********************ITERANTION 2 ********************************************/
+
 	@Override
 	public List<TravelLog> viewAllLogs() {
 		
@@ -100,15 +102,22 @@ public class MyUsers implements Users {
 	}
 
 	@Override
-	public String viewData() {
-		// TODO Auto-generated method stub
-		return null;
+	public int viewData() {
+
+		int distanceTraveledFromAllJournals = 0;
+		List<Journal> journals = db.getAllJournals();
+		for(int i = 0; i < journals.size(); i++){
+			distanceTraveledFromAllJournals = distanceTraveledFromAllJournals + journals.get(i).getAllData();
+		}
+		
+		return distanceTraveledFromAllJournals;
 	}
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean wish = db.storeWishList(destination);
+		return wish;
 	}
 
 	@Override
@@ -167,6 +176,13 @@ public class MyUsers implements Users {
 		
 		boolean delete = db.removeJournal(id);
 		return delete;
+	}
+
+	@Override
+	public List<String> viewWishList() {
+		
+		ArrayList<String> wishList = (ArrayList<String>) db.viewWishList();
+		return wishList;
 	}	
 	
 	

@@ -110,7 +110,7 @@ public interface TravelLogKeeper {
 	 * Allows user to view all the different data from the travel logs
 	 * @return - the data as a string
 	 */
-	public String viewData();
+	public int viewData();
 	
 	/**
 	 * Allows the User to add wish destinations
@@ -119,6 +119,11 @@ public interface TravelLogKeeper {
 	 */
 	public boolean addWish(String destination);
 	
+	/**
+	 * See all the wish list destinations of user.
+	 *
+	 */
+	public List<String> viewWishList();
 	/**
 	 * Allows the user to plan a future trip
 	 * @param destination - location of future trip
