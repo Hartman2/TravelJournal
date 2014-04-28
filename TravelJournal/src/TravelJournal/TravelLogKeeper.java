@@ -120,6 +120,11 @@ public interface TravelLogKeeper {
 	public boolean addWish(String destination);
 	
 	/**
+	 * See all the wish list destinations of user.
+	 *
+	 */
+	public List<String> viewWishList();
+	/**
 	 * Allows the user to plan a future trip
 	 * @param destination - location of future trip
 	 * @return - if the future trip was successfully added

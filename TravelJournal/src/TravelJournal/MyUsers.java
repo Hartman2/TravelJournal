@@ -115,8 +115,9 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean wish = db.storeWishList(destination);
+		return wish;
 	}
 
 	@Override
@@ -175,6 +176,13 @@ public class MyUsers implements Users {
 		
 		boolean delete = db.removeJournal(id);
 		return delete;
+	}
+
+	@Override
+	public List<String> viewWishList() {
+		
+		ArrayList<String> wishList = (ArrayList<String>) db.viewWishList();
+		return wishList;
 	}	
 	
 	

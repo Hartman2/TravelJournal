@@ -1,5 +1,6 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -194,5 +195,12 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 		
 		boolean delete = currentLoggedIn.deleteJournal(id);
 		return delete;
+	}
+
+	@Override
+	public List<String> viewWishList() {
+		
+		ArrayList<String> wishList = (ArrayList<String>) currentLoggedIn.viewWishList();
+		return wishList;
 	}
 }
