@@ -1,6 +1,7 @@
 package TravelJournal;
 
 import java.util.Date;
+import java.util.Random;
 
 public class MyTravelLog implements TravelLog {
 
@@ -34,7 +35,7 @@ public class MyTravelLog implements TravelLog {
 		// TODO Auto-generated method stub
 		this.destination = destination;
 		this.date = date;
-		id++;
+		id = destination.length();
 		return id;
 	}
 	
