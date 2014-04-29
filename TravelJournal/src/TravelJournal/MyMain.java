@@ -95,6 +95,7 @@ public class MyMain {
 					break;
 				}
 				
+				//Create Travel Log
 				if(temp.equals("1")){
 					System.out.println("Where Did You Go?:");
 					String dest = scanner.next();
@@ -116,23 +117,25 @@ public class MyMain {
 					System.out.println("New Log created with id " + id);
 				}
 				
-
+				//modify log
 				if(temp.equals("2")){
 					
+					System.out.println("Enter Journal Id of Journal containing the log");
+					int jID = Integer.parseInt(scanner.next());
 					System.out.println("Enter Travel Log Id to change");
 					int logID = Integer.parseInt(scanner.next());
 					System.out.println("Enter Field you want to change \n departurePoint travelMethod locationWeather destination");
 					String field = scanner.next();
 					System.out.println("Enter what you want to change " + field +" to");
 					String toChange = scanner.next();
-					boolean changed = controller.modifyLog(logID, field, toChange);
+					boolean changed = controller.modifyLog(jID, logID, field, toChange);
 					if(!changed){
 						System.out.println("Log " + logID + " was not modified");
 					}
 					
 				}
 				
-
+				//delete log
 				if(temp.equals("3")){
 					
 					int logID = Integer.parseInt(scanner.next());
@@ -141,6 +144,8 @@ public class MyMain {
 						System.out.println("Log " + logID +" was not deleted");
 					}
 				}
+				
+				//view all logs
 				if(temp.equals("4")){
 	
 					List<TravelLog> allLogs = controller.viewAllLogs();
@@ -152,13 +157,15 @@ public class MyMain {
 								"\t Rating out of 5" + tmp.myRating + "\t Travel Method " + tmp.travelMethod);
 					}
 				}
+				
+				//view all data
 				if(temp.equals("5")){
 	
 					int totalDistance = controller.viewData();
 					System.out.println("Total Distance Traveled: " + totalDistance);
 				}
 
-
+				//add a wish list destionation
 				if(temp.equals("6")){
 	
 					System.out.println("Enter in the destination you would like to add to your wish list?");
@@ -169,7 +176,7 @@ public class MyMain {
 					}
 				}
 				
-				
+				//view wish list
 				if(temp.equals("7")){
 				
 					List<String> wishList = controller.viewWishList();
