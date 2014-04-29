@@ -219,7 +219,13 @@ public class MyMain {
 				//delete account
 				if(temp.equals("10")){
 	
-
+					String username = controller.keeper.currentLoggedIn.username;
+					
+					controller.logout(username);
+					boolean remove = controller.removeUser(username);
+					if(!remove){
+						System.out.println("user was not removed");
+					}
 				}
 
 
