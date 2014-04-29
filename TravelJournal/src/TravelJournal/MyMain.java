@@ -18,14 +18,21 @@ public class MyMain {
 		MyTravelController controller = new MyTravelController();
 		
 		controller.addUser("Andrew", "Hartman");
-//		controller.login("Andrew", "Hartman");
-//		controller.addAttributes("I'm Fun");
-//		controller.createJournal();
-//		MyJournal journal = (MyJournal) controller.createJournal();
-//		Date date = new Date();
-//		date.setMonth(6);
-//		date.setYear(2015);
-//		journal.createLog("Ames",date);
+		controller.login("Andrew", "Hartman");
+		controller.addAttributes("I'm Fun");
+		MyJournal journal = (MyJournal) controller.createJournal();
+		journal.editName("Andrew's Journal");
+		
+		Date date = new Date();
+		date.setMonth(6);
+		date.setYear(2015);
+		int travelLogId = controller.createLog("Alaska", date, journal.journalName);
+		int travelLogId2 = controller.createLog("Ames", date, journal.journalName);
+		controller.addWish("Florida");
+		//controller.modifyLog(travelLogId, "destination", "Paraguay");
+		controller.addWish("Canada");
+		controller.rateTrip(journal.journalID, travelLogId,5);
+		controller.logout("Andrew");
 		
 		Scanner scanner = new Scanner(System.in);
 		int exit = 1;
@@ -66,8 +73,6 @@ public class MyMain {
 				System.out.println("You Are Registered");	
 			}
 			while(controller.keeper.currentLoggedIn !=null){
-				
-				
 				
 				System.out.println("What Would you Like to Do?");
 				System.out.println("To create a travel log press 1");

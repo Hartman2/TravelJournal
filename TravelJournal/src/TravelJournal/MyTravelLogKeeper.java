@@ -188,7 +188,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean rateTrip(int jid, int tid, int rating) {
 		
-		boolean rate = currentLoggedIn.rateTrip(jid, tid, rating);
+		boolean rate = currentLoggedIn.db.getJournal(jid).getLog(tid).rateTrip(rating);
 		return rate;
 	}
 
