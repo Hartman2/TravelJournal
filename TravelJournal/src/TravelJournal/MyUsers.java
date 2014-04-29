@@ -130,10 +130,9 @@ public class MyUsers implements Users {
 		
 		MyTravelLog log = new MyTravelLog();
 		log.createNew(destination);
+		//db.storeFutureTrip(log);
 		
-		db.storeFutureTrip(log);
-		
-		return false;
+		return db.storeFutureTrip(log);
 	}
 
 	@Override

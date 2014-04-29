@@ -194,12 +194,16 @@ public class MyMain {
 					
 				}
 				
-
+				
 				if(temp.equals("8")){
 					
+					System.out.println("Enter destination for trip to plan");
+					String destination = scanner.next();
+					if(!controller.planTrip(destination))
+						System.out.println("Failed to plan trip");
 				}
 				
-
+				
 				if(temp.equals("9")){
 	
 
