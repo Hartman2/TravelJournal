@@ -23,7 +23,7 @@ public interface DataBase {
 	/**
 	 * Able to register a given user
 	 * @param u
-	 * @return - true if able to store user. false otherwise
+	 * @return - true if able to store user, false otherwise
 	 */
 	public boolean putUser(Users u);
 	
@@ -32,7 +32,7 @@ public interface DataBase {
 	 * retrieves a journal given a string name
 	 * 
 	 * @param name
-	 * @return -  journal
+	 * @return -  journal asked for
 	 */
 	public Journal getJournal(String name);
 	
@@ -40,13 +40,13 @@ public interface DataBase {
 	/**
 	 * retrieves a journal given an id
 	 * @param id
-	 * @return - journal
+	 * @return - journal asked for
 	 */
 	public Journal getJournal(int id);
 	
 	
 	/**
-	 * stores journal in db
+	 * stores journal in Database
 	 * @param j
 	 * @return - true if journal is stored. false otherwise
 	 */
