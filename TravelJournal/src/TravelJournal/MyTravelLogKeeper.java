@@ -1,5 +1,6 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -119,6 +120,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/*********************ITERANTION 2 ********************************************/
 
 	@Override
 	public List<TravelLog> viewAllLogs() {
@@ -128,21 +130,24 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	}
 
 	@Override
-	public String viewData() {
-		// TODO Auto-generated method stub
-		return null;
+	public int viewData() {
+
+		int data = currentLoggedIn.viewData();
+		return data;
 	}
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean wish = currentLoggedIn.addWish(destination);
+		return wish;
 	}
 
 	@Override
 	public boolean planTrip(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean plan = currentLoggedIn.planTrip(destination);
+		return plan;
 	}
 
 	@Override
@@ -166,8 +171,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean addAttributes(String attribute) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean addAttribute = currentLoggedIn.addAttributes(attribute);
+		return addAttribute;
 	}
 
 	@Override
@@ -189,5 +195,12 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 		
 		boolean delete = currentLoggedIn.deleteJournal(id);
 		return delete;
+	}
+
+	@Override
+	public List<String> viewWishList() {
+		
+		ArrayList<String> wishList = (ArrayList<String>) currentLoggedIn.viewWishList();
+		return wishList;
 	}
 }

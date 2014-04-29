@@ -62,8 +62,13 @@ public interface DataBase {
 	 * Stores the user wish list
 	 * @return - true if the list is stored, false otherwise
 	 */
-	boolean storeWishList();
+	boolean storeWishList(String destination);
 	
+	/**
+	 * See all the wish list destinations of user.
+	 *
+	 */
+	public List<String> viewWishList();
 	/**
 	 * Allows user to store a future trip
 	 * @param tl - trip to be stored

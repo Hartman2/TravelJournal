@@ -8,7 +8,7 @@ import java.util.List;
 public class MyUsers implements Users {
 	String username;
 	String password;
-	String field;
+	String attribute;
 	private MyDataBase db = new MyDataBase();
 	MyUsers()
 	{
@@ -81,11 +81,13 @@ public class MyUsers implements Users {
 	@Override
 	public boolean modify(String field, String change) {
 
-		this.field = change;
+		attribute = change;
 
 		return true;
 	}	
 	
+	/*********************ITERANTION 2 ********************************************/
+
 	@Override
 	public List<TravelLog> viewAllLogs() {
 		
@@ -100,20 +102,32 @@ public class MyUsers implements Users {
 	}
 
 	@Override
-	public String viewData() {
-		// TODO Auto-generated method stub
-		return null;
+	public int viewData() {
+
+		int distanceTraveledFromAllJournals = 0;
+		List<Journal> journals = db.getAllJournals();
+		for(int i = 0; i < journals.size(); i++){
+			distanceTraveledFromAllJournals = distanceTraveledFromAllJournals + journals.get(i).getAllData();
+		}
+		
+		return distanceTraveledFromAllJournals;
 	}
 
 	@Override
 	public boolean addWish(String destination) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean wish = db.storeWishList(destination);
+		return wish;
 	}
 
 	@Override
 	public boolean planTrip(String destination) {
-		// TODO Auto-generated method stub
+		
+		MyTravelLog log = new MyTravelLog();
+		log.createNew(destination);
+		
+		db.storeFutureTrip(log);
+		
 		return false;
 	}
 
@@ -140,8 +154,9 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean addAttributes(String attribute) {
-		// TODO Auto-generated method stub
-		return false;
+
+		this.attribute = attribute;
+		return true;
 	}
 
 	@Override
@@ -167,6 +182,13 @@ public class MyUsers implements Users {
 		
 		boolean delete = db.removeJournal(id);
 		return delete;
+	}
+
+	@Override
+	public List<String> viewWishList() {
+		
+		ArrayList<String> wishList = (ArrayList<String>) db.viewWishList();
+		return wishList;
 	}	
 	
 	
