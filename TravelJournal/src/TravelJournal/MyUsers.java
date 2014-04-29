@@ -18,6 +18,12 @@ public class MyUsers implements Users {
 	@Override
 	public int createLog(String destination, Date date, String Journal) {
 		
+		if(db.getJournal(Journal) == null)
+		{
+			Journal j = createJournalAlt();
+			j.editName(Journal);
+			db.putJournal(j);
+		}
 		Journal toEdit = db.getJournal(Journal);
 		int id = toEdit.createLog(destination, date);
 		db.putJournal(toEdit);
