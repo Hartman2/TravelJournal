@@ -32,11 +32,11 @@ public class MyMain {
 			System.out.println("If you want to sign up and register press 2");
 			System.out.println("If you want to exit the program press 0");
 			String temp = scanner.next();
-			if(Integer.parseInt(temp) == 0 ){
+			if(temp.equals("0")){
 				System.out.println("Exiting the program....");
 				exit = 0;
 			}
-			if(Integer.parseInt(temp) == 1){
+			if(temp.equals("1")){
 			
 				System.out.println("Type your Username");
 				String username = scanner.next();
@@ -52,7 +52,7 @@ public class MyMain {
 				
 			}
 			
-			if(Integer.parseInt(temp) == 2){
+			if(temp.equals("2")){
 				
 				System.out.println("Type your Username");
 				String username = scanner.next();
@@ -86,11 +86,99 @@ public class MyMain {
 				System.out.println("To logout enter logout");
 				System.out.println("To exit press 0");
 				
-				if(scanner.nextInt()== 0){
+				temp = scanner.next();
+				if(temp.equals("0")){
 					System.out.println("Exiting the program....");
 					exit = 0;
+					break;
 				}
 				
+				if(temp.equals("1")){
+					
+				}
+				
+
+				if(temp.equals("2")){
+					
+				}
+				
+
+				if(temp.equals("3")){
+	
+
+				}
+
+
+				if(temp.equals("4")){
+	
+
+				}
+
+
+				if(temp.equals("5")){
+	
+
+				}
+
+
+				if(temp.equals("6")){
+	
+
+				}
+				
+				
+				if(temp.equals("7")){
+					
+				}
+				
+
+				if(temp.equals("8")){
+					
+				}
+				
+
+				if(temp.equals("9")){
+	
+
+				}
+
+
+				if(temp.equals("10")){
+	
+
+				}
+
+
+
+				if(temp.equals("11")){
+	
+
+				}
+
+
+				if(temp.equals("12")){
+	
+
+				}
+				
+				
+				if(temp.equals("13")){
+					
+				}
+				
+
+				if(temp.equals("14")){
+	
+
+				}
+
+
+				if(temp.equals("logout")){
+					String user = controller.keeper.currentLoggedIn.username;
+					controller.logout(user);
+					System.out.println(user + " You Are currently logged out");
+
+				}
 				
 			}
 			
