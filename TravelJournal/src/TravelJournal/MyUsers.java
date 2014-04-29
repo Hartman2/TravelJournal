@@ -23,6 +23,7 @@ public class MyUsers implements Users {
 			Journal j = createJournalAlt();
 			j.editName(Journal);
 			db.putJournal(j);
+			System.out.println("New Journal Created id = " + j.getID());
 		}
 		Journal toEdit = db.getJournal(Journal);
 		int id = toEdit.createLog(destination, date);
@@ -31,10 +32,10 @@ public class MyUsers implements Users {
 	}
 
 	@Override
-	public boolean modifyLog(int id, String field, String toChange) {
+	public boolean modifyLog(int jid, int id, String field, String toChange) {
 		
-		Journal toEdit = db.getJournal(id);
-		TravelLog tl = toEdit.getLog(0);//need new id field
+		Journal toEdit = db.getJournal(jid);
+		TravelLog tl = toEdit.getLog(id);//need new id field
 		boolean success = toEdit.modifyLog(tl, field, toChange); //needs extra parameters
 		db.putJournal(toEdit);
 		
