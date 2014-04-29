@@ -1,5 +1,6 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -88,8 +89,40 @@ public class MyJournal implements Journal {
 
 	@Override
 	public List<TravelLog> sort(String by) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<TravelLog> unsorted = getAllLogs();
+		List<TravelLog> sorted = new ArrayList<TravelLog>();
+		if(by.equalsIgnoreCase("Date"))
+		{
+			for(TravelLog tl : unsorted)
+			{
+				Date date = tl.getDate();
+				if(sorted.size() == 0)
+					sorted.add(tl);
+				int i = 0;
+				while(date.before(sorted.get(i).getDate()))
+				{
+					i++;
+				}
+				sorted.add(tl);
+			}
+		}
+		else if(by.equalsIgnoreCase("Rating"))
+		{
+			for(TravelLog tl : unsorted)
+			{
+				int rate = tl.getRating();
+				if(sorted.size() == 0)
+					sorted.add(tl);
+				int i = 0;
+				while(rate < sorted.get(i).getRating())
+				{
+					i++;
+				}
+				sorted.add(tl);
+			}
+		}
+		return sorted;
 	}
 
 

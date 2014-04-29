@@ -60,5 +60,15 @@ public class MyTravelLog implements TravelLog {
 		myRating = rating;
 		return true;
 	}
+	
+	public int getRating()
+	{
+		return myRating;
+	}
+	
+	public Date getDate()
+	{
+		return date;
+	}
 
 }
