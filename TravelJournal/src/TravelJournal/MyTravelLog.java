@@ -37,6 +37,7 @@ public class MyTravelLog implements TravelLog {
 		// TODO Auto-generated method stub
 		this.destination = destination;
 		this.date = date;
+		// (int)(Math.random()*100)
 		id = destination.length();
 		return id;
 	}
