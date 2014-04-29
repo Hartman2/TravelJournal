@@ -36,7 +36,7 @@ public class MyJournal implements Journal {
 	@Override
 	public boolean deleteLog(int id) {
 		
-		boolean delete = travelLogs.remove(id) != null;
+		boolean delete = (travelLogs.remove(id) != null);
 		return delete;
 	}
 
