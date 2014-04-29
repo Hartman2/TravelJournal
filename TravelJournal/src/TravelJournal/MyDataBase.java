@@ -11,6 +11,7 @@ public class MyDataBase implements DataBase {
 	HashMap<String, Journal> journals = new HashMap<String, Journal>();
 	ArrayList<MyUsers> users = new ArrayList<MyUsers>(); 
 	ArrayList<String> wishList = new ArrayList<String>();
+	ArrayList<MyTravelLog> plannedTrip = new ArrayList<MyTravelLog>();
 	MyDataBase()
 	{
 		
@@ -81,8 +82,9 @@ public class MyDataBase implements DataBase {
 	}
 	@Override
 	public boolean storeFutureTrip(TravelLog tl) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean trip = plannedTrip.add((MyTravelLog) tl);
+		return trip;
 	}
 	@Override
 	public boolean removeJournal(int id) {
