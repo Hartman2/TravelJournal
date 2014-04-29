@@ -225,15 +225,32 @@ public class MyMain {
 				}
 				
 				
+				//rate trip
 				if(temp.equals("13")){
+					System.out.println("Give the id of the journal your travel log is in");
+					String jid = scanner.next();
+					System.out.println("Give the id of the travel log you want to rate");
+					String tid = scanner.next();
+					System.out.println("Give the rating for the trip");
+					String rating = scanner.next();
+					boolean rate = controller.rateTrip(Integer.parseInt(jid), Integer.parseInt(tid), Integer.parseInt(rating));
+					if(!rate){
+						System.out.println("Rating was not successful");
+					}
 					
 				}
 				
-
+				//delete journal
 				if(temp.equals("14")){
-	
+					System.out.println("Give the id of the journal you want to delete ");
+					String tmp = scanner.next();
+					boolean delete = controller.deleteJournal(Integer.parseInt(tmp));
+					if(!delete){
+						System.out.println("Journal was not deleted");
+					}
 
 				}
+
 
 
 				if(temp.equals("logout")){
