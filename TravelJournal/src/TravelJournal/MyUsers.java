@@ -8,7 +8,7 @@ import java.util.List;
 public class MyUsers implements Users {
 	String username;
 	String password;
-	String field;
+	String attribute;
 	private MyDataBase db = new MyDataBase();
 	MyUsers()
 	{
@@ -81,7 +81,7 @@ public class MyUsers implements Users {
 	@Override
 	public boolean modify(String field, String change) {
 
-		this.field = change;
+		attribute = change;
 
 		return true;
 	}	
@@ -122,7 +122,12 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean planTrip(String destination) {
-		// TODO Auto-generated method stub
+		
+		MyTravelLog log = new MyTravelLog();
+		log.createNew(destination);
+		
+		db.storeFutureTrip(log);
+		
 		return false;
 	}
 
@@ -149,8 +154,9 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean addAttributes(String attribute) {
-		// TODO Auto-generated method stub
-		return false;
+
+		this.attribute = attribute;
+		return true;
 	}
 
 	@Override
