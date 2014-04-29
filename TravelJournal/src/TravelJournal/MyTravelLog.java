@@ -33,11 +33,11 @@ public class MyTravelLog implements TravelLog {
 
 	@Override
 	public int create(String destination, Date date) {
-		// TODO Auto-generated method stub
+		
 		this.destination = destination;
 		this.date = date;
 		// (int)(Math.random()*100)
-		id = destination.length();
+		id = (int)(Math.random()*100);//destination.length();
 		return id;
 	}
 	

@@ -11,6 +11,7 @@ public class MyJournal implements Journal {
 	HashMap<Integer, TravelLog> travelLogs = new HashMap<Integer, TravelLog>();
 	String journalName = "";
 	int journalID = 0;
+	
 	@Override
 	public int createLog(String destination, Date date) {
 		TravelLog tl = new MyTravelLog();
@@ -28,8 +29,8 @@ public class MyJournal implements Journal {
 
 	@Override
 	public boolean modifyLog(TravelLog t, String field, String toChange) {
-		boolean success  = t.modifyTravelLog(field, toChange);
 		
+		boolean success  = t.modifyTravelLog(field, toChange);
 		return success;
 	}
 
@@ -44,8 +45,7 @@ public class MyJournal implements Journal {
 	public boolean editName(String name) {
 		
 		journalName = name;
-		
-		return true;
+		return journalName.equals(name);
 	}
 
 	@Override
