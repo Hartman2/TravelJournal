@@ -144,14 +144,16 @@ public class MyTravelController implements TravelController {
 
 	@Override
 	public List<TravelLog> sortDate() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<TravelLog> tl =  keeper.sortDate();
+		return tl;
 	}
 
 	@Override
 	public List<TravelLog> sortRating() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<TravelLog> tl = keeper.sortRating();
+		return tl;
 	}
 
 	@Override

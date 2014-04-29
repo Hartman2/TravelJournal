@@ -159,14 +159,16 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public List<TravelLog> sortDate() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<TravelLog> tl = currentLoggedIn.sortDate();
+		return tl;
 	}
 
 	@Override
 	public List<TravelLog> sortRating() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<TravelLog> tl = currentLoggedIn.sortRating();
+		return tl;
 	}
 
 	@Override
