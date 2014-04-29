@@ -44,7 +44,7 @@ public class MyTravelLog implements TravelLog {
 	@Override
 	public int getData() {
 		// TODO Auto-generated method stub
-		return 0;
+		return distance;
 	}
 
 	@Override
