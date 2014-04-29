@@ -16,12 +16,14 @@ public class MyTravelLog implements TravelLog {
 	@Override
 	public boolean modifyTravelLog(String field, String toChange) {
 		boolean success = true;
-		if(field == "departurePoint")
+		if(field.equals("departurePoint"))
 			departurePoint = toChange;
-		else if(field == "travelMethod")
+		else if(field.equals("travelMethod"))
 			travelMethod = toChange;
-		else if(field == "locationWeather")
+		else if(field.equals("locationWeather"))
 			locationWeather = toChange;
+		else if(field.equals("destination"))
+			destination = toChange;
 		else
 			success = false;
 		return success;

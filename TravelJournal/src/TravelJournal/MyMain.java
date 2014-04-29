@@ -1,6 +1,8 @@
 package TravelJournal;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyMain {
@@ -49,7 +51,6 @@ public class MyMain {
 				else{
 					System.out.println("You Are Logged In");
 				}
-				
 			}
 			
 			if(temp.equals("2")){
@@ -60,8 +61,7 @@ public class MyMain {
 				String password = scanner.next();
 				
 				controller.addUser(username, password);
-				System.out.println("You Are Registered");
-				
+				System.out.println("You Are Registered");	
 			}
 			while(controller.keeper.currentLoggedIn !=null){
 				
@@ -100,18 +100,43 @@ public class MyMain {
 
 				if(temp.equals("2")){
 					
+					System.out.println("Enter Travel Log Id to change");
+					int logID = Integer.parseInt(scanner.next());
+					System.out.println("Enter Field you want to change \n departurePoint travelMethod locationWeather destination");
+					String field = scanner.next();
+					System.out.println("Enter what you want to change " + field +" to");
+					String toChange = scanner.next();
+					boolean changed = controller.modifyLog(logID, field, toChange);
+					if(!changed){
+						System.out.println("Log " + logID + " was not modified");
+					}
+					
 				}
 				
 
 				if(temp.equals("3")){
-	
-
+					
+					int logID = Integer.parseInt(scanner.next());
+					boolean deleted = controller.deleteLog(logID);
+					if(!deleted){
+						System.out.println("Log " + logID +" was not deleted");
+					}
 				}
 
 
 				if(temp.equals("4")){
 	
-
+					List<TravelLog> allLogs = controller.viewAllLogs();
+					for(int i = 0; i < allLogs.size(); i++){
+						
+						MyTravelLog tmp = (MyTravelLog) allLogs.get(i);
+						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
+								+ "\t Distance to Destination"+ tmp.distance + "\t Destination Weather" + tmp.locationWeather +
+								"\t Rating out of 5" + tmp.myRating + "\t Travel Method " + tmp.travelMethod);
+						
+					}
+					
+					
 				}
 
 
