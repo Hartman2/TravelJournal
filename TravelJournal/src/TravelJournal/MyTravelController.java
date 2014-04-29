@@ -31,10 +31,10 @@ public class MyTravelController implements TravelController {
 	}
 
 	@Override
-	public boolean modifyLog(int id, String field, String toChange) {
+	public boolean modifyLog(int jid, int id, String field, String toChange) {
 		
-		keeper = new MyTravelLogKeeper();
-		boolean success = keeper.modifyLog(id, field, toChange);
+		
+		boolean success = keeper.modifyLog(jid, id, field, toChange);
 		return success;
 	}
 

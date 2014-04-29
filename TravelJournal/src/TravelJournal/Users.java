@@ -23,7 +23,7 @@ public interface Users {
 	 * @param toChange
 	 * @return returns true if able to change. false otherwise
 	 */
-	public boolean modifyLog(int id, String field, String toChange);
+	public boolean modifyLog(int jid, int id, String field, String toChange);
 	
 	/**
 	 * delete log
