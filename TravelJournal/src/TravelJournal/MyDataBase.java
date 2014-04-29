@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MyDataBase implements DataBase {
 
-	HashMap<String, Journal> journals = new HashMap<String, Journal>();
+	HashMap<Integer, Journal> journals = new HashMap<Integer, Journal>();
 	ArrayList<MyUsers> users = new ArrayList<MyUsers>(); 
 	ArrayList<String> wishList = new ArrayList<String>();
 	ArrayList<MyTravelLog> plannedTrip = new ArrayList<MyTravelLog>();
@@ -63,9 +63,9 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public boolean putJournal(Journal j) {
-		String key = j.getName();
+		int key = j.getID();
 		journals.put(key, j);
-		return false;
+		return true;
 	}
 	
 	@Override

@@ -44,10 +44,10 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	}
 
 	@Override
-	public boolean modifyLog(int id, String field, String toChange) {
+	public boolean modifyLog(int jid, int id, String field, String toChange) {
 		
 		//Users theUser = new MyUsers();
-		boolean success = currentLoggedIn.modifyLog(id, field, toChange);
+		boolean success = currentLoggedIn.modifyLog(jid, id, field, toChange);
 		return success;
 	}
 
