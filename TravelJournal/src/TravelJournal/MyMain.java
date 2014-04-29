@@ -81,7 +81,7 @@ public class MyMain {
 				System.out.println("To view distance traveled on a single trip press 9");
 				System.out.println("If you want to delete your account enter 10");
 				System.out.println("If you want to add an attribute to your profile enter 11");
-				System.out.println("If you want to createa journal enter 12");
+				System.out.println("If you want to create a journal enter 12");
 				System.out.println("If you want to rate a trip enter 13");
 				System.out.println("if you want to delete a journal enter 14");
 				System.out.println("");
@@ -124,7 +124,7 @@ public class MyMain {
 					int jID = Integer.parseInt(scanner.next());
 					System.out.println("Enter Travel Log Id to change");
 					int logID = Integer.parseInt(scanner.next());
-					System.out.println("Enter Field you want to change \n departurePoint travelMethod locationWeather destination");
+					System.out.println("Enter Field you want to change \n departurePoint travelMethod locationWeather destination distance");
 					String field = scanner.next();
 					System.out.println("Enter what you want to change " + field +" to");
 					String toChange = scanner.next();
@@ -138,8 +138,11 @@ public class MyMain {
 				//delete log
 				if(temp.equals("3")){
 					
+					System.out.println("Enter Travel Log Id to delete");
 					int logID = Integer.parseInt(scanner.next());
-					boolean deleted = controller.deleteLog(logID);
+					System.out.println("Enter Journal Id of Journal containing the log");
+					int jID = Integer.parseInt(scanner.next());
+					boolean deleted = controller.deleteLog(logID, jID);
 					if(!deleted){
 						System.out.println("Log " + logID +" was not deleted");
 					}
@@ -149,12 +152,12 @@ public class MyMain {
 				if(temp.equals("4")){
 	
 					List<TravelLog> allLogs = controller.viewAllLogs();
-					for(int i = 0; i < allLogs.size(); i++){
+					for(TravelLog tl : allLogs){
 						
-						MyTravelLog tmp = (MyTravelLog) allLogs.get(i);
+						MyTravelLog tmp = (MyTravelLog)tl; //allLogs.get(i);
 						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
-								+ "\t Distance to Destination"+ tmp.distance + "\t Destination Weather" + tmp.locationWeather +
-								"\t Rating out of 5" + tmp.myRating + "\t Travel Method " + tmp.travelMethod);
+								+ "\t Distance to Destination: "+ tmp.distance + "\t Destination Weather: " + tmp.locationWeather +
+								"\t Rating out of 5: " + tmp.myRating + "\t Travel Method: " + tmp.travelMethod);
 					}
 				}
 				

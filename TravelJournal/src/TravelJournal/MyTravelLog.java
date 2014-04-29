@@ -24,6 +24,8 @@ public class MyTravelLog implements TravelLog {
 			locationWeather = toChange;
 		else if(field.equals("destination"))
 			destination = toChange;
+		else if(field.equals("distance"))
+			distance = Integer.parseInt(toChange);
 		else
 			success = false;
 		return success;
