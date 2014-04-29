@@ -9,7 +9,7 @@ public class MyUsers implements Users {
 	String username;
 	String password;
 	String attribute;
-	private MyDataBase db = new MyDataBase();
+	protected MyDataBase db = new MyDataBase();
 	MyUsers()
 	{
 		
