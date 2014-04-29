@@ -133,7 +133,7 @@ public class MyUsers implements Users {
 
 	@Override
 	public int viewTripDistance(int tid, int jid) {
-		// TODO Auto-generated method stub
+		
 		Journal j = db.getJournal(jid);
 		TravelLog tl = j.getLog(tid);
 		int distance = tl.getDistance();
@@ -142,14 +142,26 @@ public class MyUsers implements Users {
 
 	@Override
 	public List<TravelLog> sortDate() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Journal> j = db.getAllJournals();
+		List<TravelLog> toReturn = new ArrayList<TravelLog>();
+		for(Journal journal : j)
+		{
+			toReturn.addAll(journal.sort("Date"));
+		}
+		return toReturn;
 	}
 
 	@Override
 	public List<TravelLog> sortRating() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Journal> j = db.getAllJournals();
+		List<TravelLog> toReturn = new ArrayList<TravelLog>();
+		for(Journal journal : j)
+		{
+			toReturn.addAll(journal.sort("Rating"));
+		}
+		return toReturn;
 	}
 
 	@Override
@@ -161,9 +173,9 @@ public class MyUsers implements Users {
 
 	@Override
 	public Journal createJournalAlt() {
-		// TODO Auto-generated method stub
+		
 		Journal j = new MyJournal();
-		int id = j.create();
+		j.create();
 		db.putJournal(j);
 		return j;
 	}

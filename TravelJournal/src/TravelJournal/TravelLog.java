@@ -49,4 +49,13 @@ public interface TravelLog {
 	 */
 	boolean rateTrip(int rating);
 	
+	/**
+	 * get methods for the sorting
+	 * @return
+	 */
+	public int getRating();
+	
+	public Date getDate();
+	
+	
 }
