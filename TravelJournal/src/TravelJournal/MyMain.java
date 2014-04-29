@@ -212,7 +212,8 @@ public class MyMain {
 				//view total distance
 				if(temp.equals("9")){
 	
-
+					int totalDistance = controller.viewData();
+					System.out.println("Total Traveled Distance is " + totalDistance);
 				}
 
 				//delete account
