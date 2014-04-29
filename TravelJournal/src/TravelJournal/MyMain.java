@@ -1,5 +1,7 @@
 package TravelJournal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,7 +96,24 @@ public class MyMain {
 				}
 				
 				if(temp.equals("1")){
+					System.out.println("Where Did You Go?:");
+					String dest = scanner.next();
+					System.out.println("When Did You Go?(dd/MM/yyyy):");
+					String when = scanner.next();
+					System.out.println("What Journal to add to?:");
+					String journ = scanner.next();
 					
+					Date myDate = new Date();
+					
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					try {
+						myDate = sdf.parse(when);
+					} catch (ParseException e) {
+						
+						e.printStackTrace();
+					}
+					int id = controller.createLog(dest, myDate, journ);
+					System.out.println("New Log created with id " + id);
 				}
 				
 
