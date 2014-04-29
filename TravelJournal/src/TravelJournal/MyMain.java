@@ -21,15 +21,21 @@ public class MyMain {
 		controller.addAttributes("I'm Fun");
 		MyJournal journal = (MyJournal) controller.createJournal();
 		journal.editName("Andrew's Journal");
+		MyJournal journal2 = (MyJournal) controller.createJournal();
+		journal2.editName("Andrew's Journal2");
 		
 		Date date = new Date();
 		date.setMonth(6);
 		date.setYear(2015);
 		int travelLogId = controller.createLog("Alaska", date, journal.journalName);
 		int travelLogId2 = controller.createLog("Ames", date, journal.journalName);
+		
+		int travelLogId3 = controller.createLog("Alaska2", date, journal2.journalName);
+		int travelLogId4 = controller.createLog("Ames2", date, journal2.journalName);
 		controller.addWish("Florida");
 		//controller.modifyLog(travelLogId, "destination", "Paraguay");
 		controller.addWish("Canada");
+		System.out.println("Journal id is " + journal.journalID);
 		controller.rateTrip(journal.journalID, travelLogId,5);
 		controller.logout("Andrew");
 		
@@ -194,31 +200,31 @@ public class MyMain {
 					
 				}
 				
-
+				//plan trip
 				if(temp.equals("8")){
 					
 				}
 				
-
+				//view total distance
 				if(temp.equals("9")){
 	
 
 				}
 
-
+				//delete account
 				if(temp.equals("10")){
 	
 
 				}
 
 
-
+				//add attribute
 				if(temp.equals("11")){
 	
 
 				}
 
-
+				//create a journal
 				if(temp.equals("12")){
 	
 
@@ -250,8 +256,6 @@ public class MyMain {
 					}
 
 				}
-
-
 
 				if(temp.equals("logout")){
 					String user = controller.keeper.currentLoggedIn.username;
