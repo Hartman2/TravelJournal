@@ -2,7 +2,6 @@ package TravelJournal;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 public class MyUsers implements Users {
@@ -46,8 +45,7 @@ public class MyUsers implements Users {
 	public boolean deleteLog(int id, int jid) {
 
 		Journal j = db.getJournal(jid);
-		j.deleteLog(id);
-		return false;
+		return j.deleteLog(id);
 	}
 	@Override
 	public boolean nameJournal(String currentName, String newName) {

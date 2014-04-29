@@ -36,7 +36,7 @@ public class MyJournal implements Journal {
 	@Override
 	public boolean deleteLog(int id) {
 		
-		boolean delete = travelLogs.remove(id) != null;
+		boolean delete = (travelLogs.remove(id) != null);
 		return delete;
 	}
 
@@ -71,7 +71,12 @@ public class MyJournal implements Journal {
 	public List<TravelLog> getAllLogs() {
 		
 		Collection<TravelLog> tl = travelLogs.values();
-		List<TravelLog> logs  = (List<TravelLog>) tl;
+		List<TravelLog> logs  = new ArrayList<TravelLog>();
+		for(TravelLog log : tl)
+		{
+			logs.add(log);
+		}
+		
 		return logs;
 	}
 

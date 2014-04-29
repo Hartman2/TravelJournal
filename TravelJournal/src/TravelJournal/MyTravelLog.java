@@ -1,7 +1,6 @@
 package TravelJournal;
 
 import java.util.Date;
-import java.util.Random;
 
 public class MyTravelLog implements TravelLog {
 
@@ -25,6 +24,8 @@ public class MyTravelLog implements TravelLog {
 			locationWeather = toChange;
 		else if(field.equals("destination"))
 			destination = toChange;
+		else if(field.equals("distance"))
+			distance = Integer.parseInt(toChange);
 		else
 			success = false;
 		return success;
@@ -35,6 +36,7 @@ public class MyTravelLog implements TravelLog {
 		// TODO Auto-generated method stub
 		this.destination = destination;
 		this.date = date;
+		// (int)(Math.random()*100)
 		id = destination.length();
 		return id;
 	}
@@ -64,11 +66,13 @@ public class MyTravelLog implements TravelLog {
 		return true;
 	}
 	
+	@Override
 	public int getRating()
 	{
 		return myRating;
 	}
 	
+	@Override
 	public Date getDate()
 	{
 		return date;
