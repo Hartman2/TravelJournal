@@ -72,7 +72,11 @@ public class MyDataBase implements DataBase {
 	public List<Journal> getAllJournals() {
 		
 		Collection<Journal> theJournal = journals.values();
-		List<Journal> j = (List<Journal>) theJournal;
+		List<Journal> j = new ArrayList<Journal>();
+		for(Journal journ : theJournal)
+		{
+			j.add(journ);
+		}
 		return j;
 	}
 	@Override

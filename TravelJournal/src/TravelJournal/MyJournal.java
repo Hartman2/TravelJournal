@@ -71,7 +71,12 @@ public class MyJournal implements Journal {
 	public List<TravelLog> getAllLogs() {
 		
 		Collection<TravelLog> tl = travelLogs.values();
-		List<TravelLog> logs  = (List<TravelLog>) tl;
+		List<TravelLog> logs  = new ArrayList<TravelLog>();
+		for(TravelLog log : tl)
+		{
+			logs.add(log);
+		}
+		
 		return logs;
 	}
 

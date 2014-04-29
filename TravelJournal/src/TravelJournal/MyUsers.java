@@ -47,7 +47,7 @@ public class MyUsers implements Users {
 
 		Journal j = db.getJournal(jid);
 		j.deleteLog(id);
-		return false;
+		return j.deleteLog(id);
 	}
 	@Override
 	public boolean nameJournal(String currentName, String newName) {
