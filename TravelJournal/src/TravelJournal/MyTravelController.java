@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MyTravelController implements TravelController {
 
-	private MyTravelLogKeeper keeper = new MyTravelLogKeeper();
+	protected MyTravelLogKeeper keeper = new MyTravelLogKeeper();
 	
 	@Override
 	public boolean login(String name, String password) {
