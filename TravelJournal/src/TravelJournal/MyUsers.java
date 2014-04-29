@@ -19,9 +19,9 @@ public class MyUsers implements Users {
 	public int createLog(String destination, Date date, String Journal) {
 		
 		Journal toEdit = db.getJournal(Journal);
-		toEdit.createLog(destination, date);
+		int id = toEdit.createLog(destination, date);
 		db.putJournal(toEdit);
-		return 0;
+		return id;
 	}
 
 	@Override
