@@ -241,6 +241,13 @@ public class MyMain {
 
 				}
 				
+				System.out.println();
+				System.out.println();
+				System.out.println("Enter z to continue");
+				String t = scanner.next();
+				while(!t.equals("z")){
+					t = scanner.next();
+				}
 			}
 			
 			
