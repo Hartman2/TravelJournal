@@ -122,8 +122,6 @@ public class MyMain {
 						System.out.println("Log " + logID +" was not deleted");
 					}
 				}
-
-
 				if(temp.equals("4")){
 	
 					List<TravelLog> allLogs = controller.viewAllLogs();
@@ -133,26 +131,33 @@ public class MyMain {
 						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
 								+ "\t Distance to Destination"+ tmp.distance + "\t Destination Weather" + tmp.locationWeather +
 								"\t Rating out of 5" + tmp.myRating + "\t Travel Method " + tmp.travelMethod);
-						
 					}
-					
-					
 				}
-
-
 				if(temp.equals("5")){
 	
-
+					int totalDistance = controller.viewData();
+					System.out.println("Total Distance Traveled: " + totalDistance);
 				}
 
 
 				if(temp.equals("6")){
 	
-
+					System.out.println("Enter in the destination you would like to add to your wish list?");
+					String destination = scanner.next();
+					boolean dest = controller.addWish(destination);
+					if(!dest){
+						System.out.println("Could not add destination to wishlist");
+					}
 				}
 				
 				
 				if(temp.equals("7")){
+				
+					List<String> wishList = controller.viewWishList();
+					System.out.println("Wish List Destinations include");
+					for(int i = 0; i < wishList.size(); i++){
+						System.out.println("\t" + wishList.get(i));
+					}
 					
 				}
 				
