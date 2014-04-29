@@ -90,9 +90,9 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 			return false;
 		}
 		
-		data.users.remove(data.getUser(name));
+		boolean remove = data.users.remove(data.getUser(name));
 		
-		return false;
+		return remove;
 	}
 
 	@Override

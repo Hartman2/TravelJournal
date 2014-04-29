@@ -20,9 +20,9 @@ public class MyMain {
 		controller.login("Andrew", "Hartman");
 		controller.addAttributes("I'm Fun");
 		MyJournal journal = (MyJournal) controller.createJournal();
-		journal.editName("Andrew's Journal");
+		journal.editName("Journal");
 		MyJournal journal2 = (MyJournal) controller.createJournal();
-		journal2.editName("Andrew's Journal2");
+		journal2.editName("Journal2");
 		
 		Date date = new Date();
 		date.setMonth(6);
@@ -32,6 +32,13 @@ public class MyMain {
 		
 		int travelLogId3 = controller.createLog("Alaska2", date, journal2.journalName);
 		int travelLogId4 = controller.createLog("Ames2", date, journal2.journalName);
+		
+		controller.modifyLog(journal.journalID, travelLogId, "distance", "1010");
+		controller.modifyLog(journal.journalID, travelLogId2, "distance", "2020");
+		controller.modifyLog(journal2.journalID, travelLogId3, "distance", "2020");
+		controller.modifyLog(journal2.journalID, travelLogId4, "distance", "1015");
+		
+		
 		controller.addWish("Florida");
 		//controller.modifyLog(travelLogId, "destination", "Paraguay");
 		controller.addWish("Canada");
@@ -84,7 +91,7 @@ public class MyMain {
 				System.out.println("To modify a travel log press 2");
 				System.out.println("To delete a travel log press 3");
 				System.out.println("To view all travel logs press 4");
-				System.out.println("To view all distance traveled press 5");
+				System.out.println("To view total distance traveled press 5");
 				System.out.println("To add item to wish list press 6");
 				System.out.println("To view wishlist press 7");
 				System.out.println("To Plan trip press 8");
@@ -94,7 +101,7 @@ public class MyMain {
 				System.out.println("If you want to create a journal enter 12");
 				System.out.println("If you want to rate a trip enter 13");
 				System.out.println("if you want to delete a journal enter 14");
-				System.out.println("");
+				System.out.println("If you want to view your attribute enter 15");
 				System.out.println("To logout enter logout");
 				System.out.println("To exit press 0");
 				
@@ -228,19 +235,25 @@ public class MyMain {
 					}
 				}
 
-
 				//add attribute
 				if(temp.equals("11")){
-	
-
+					
+					System.out.println("Enter a new attribute/fun fact do you want on your profile");
+					String attribute = scanner.next();
+					controller.addAttributes(attribute);
+					
 				}
 
 				//create a journal
 				if(temp.equals("12")){
 	
+					System.out.println("Enter a name for the journal");
+					String name = scanner.next();
+					MyJournal j = (MyJournal) controller.createJournal();
+					j.editName(name);
+					System.out.println("Your journal " + name + " was created with the id of " + j.journalID);
 
 				}
-				
 				
 				//rate trip
 				if(temp.equals("13")){
@@ -267,6 +280,12 @@ public class MyMain {
 					}
 
 				}
+				//view user's attribute
+				if(temp.equals("15")){
+					String attri = controller.keeper.currentLoggedIn.attribute;
+					System.out.println(controller.keeper.currentLoggedIn.username+"'s attribute is " + attri);
+				
+				}
 
 				if(temp.equals("logout")){
 					String user = controller.keeper.currentLoggedIn.username;
@@ -283,18 +302,6 @@ public class MyMain {
 					t = scanner.next();
 				}
 			}
-			
-			
-			
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
 }
