@@ -1,7 +1,6 @@
 package TravelJournal;
 
 import java.util.Date;
-import java.util.Random;
 
 public class MyTravelLog implements TravelLog {
 
@@ -67,11 +66,13 @@ public class MyTravelLog implements TravelLog {
 		return true;
 	}
 	
+	@Override
 	public int getRating()
 	{
 		return myRating;
 	}
 	
+	@Override
 	public Date getDate()
 	{
 		return date;
