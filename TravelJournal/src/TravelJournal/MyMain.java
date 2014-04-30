@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class MyMain {
 
-	// This will be the class to call controller and be the actualy program
+	// This will be the class to call controller and be the actually program
 	public static void main(String[] args){
 		
 		
@@ -44,6 +44,9 @@ public class MyMain {
 		controller.addWish("Canada");
 		System.out.println("Journal id is " + journal.journalID);
 		controller.rateTrip(journal.journalID, travelLogId,5);
+		controller.rateTrip(journal.journalID, travelLogId2,4);
+		controller.rateTrip(journal2.journalID, travelLogId3,3);
+		controller.rateTrip(journal2.journalID, travelLogId4,2);
 		controller.logout("Andrew");
 		
 		Scanner scanner = new Scanner(System.in);
@@ -102,6 +105,8 @@ public class MyMain {
 				System.out.println("If you want to rate a trip enter 13");
 				System.out.println("if you want to delete a journal enter 14");
 				System.out.println("If you want to view your attribute enter 15");
+				System.out.println("To Sort & View logs by date enter 16");
+				System.out.println("To Sort & View logs by rating enter 17");
 				System.out.println("To logout enter logout");
 				System.out.println("To exit press 0");
 				
@@ -176,6 +181,8 @@ public class MyMain {
 								+ "\t Distance to Destination: "+ tmp.distance + "\t Destination Weather: " + tmp.locationWeather +
 								"\t Rating out of 5: " + tmp.myRating + "\t Travel Method: " + tmp.travelMethod);
 					}
+					if(allLogs.size() == 0)
+						System.out.println("No Logs Exist");
 				}
 				
 				//view all data
@@ -185,7 +192,7 @@ public class MyMain {
 					System.out.println("Total Distance Traveled: " + totalDistance);
 				}
 
-				//add a wish list destionation
+				//add a wish list destination
 				if(temp.equals("6")){
 	
 					System.out.println("Enter in the destination you would like to add to your wish list?");
@@ -194,6 +201,8 @@ public class MyMain {
 					if(!dest){
 						System.out.println("Could not add destination to wishlist");
 					}
+					else
+						System.out.println(destination + " added to wishlist");
 				}
 				
 				//view wish list
@@ -204,6 +213,8 @@ public class MyMain {
 					for(int i = 0; i < wishList.size(); i++){
 						System.out.println("\t" + wishList.get(i));
 					}
+					if(wishList.size() == 0)
+						System.out.println("WishList is empty");
 					
 				}
 				
@@ -214,6 +225,8 @@ public class MyMain {
 					String destination = scanner.next();
 					if(!controller.planTrip(destination))
 						System.out.println("Failed to plan trip");
+					else
+						System.out.println("Trip to " + destination + " planned");
 				}
 				
 				//view total distance
@@ -233,6 +246,8 @@ public class MyMain {
 					if(!remove){
 						System.out.println("user was not removed");
 					}
+					else
+						System.out.println(username + " Successfully removed");
 				}
 
 				//add attribute
@@ -240,7 +255,11 @@ public class MyMain {
 					
 					System.out.println("Enter a new attribute/fun fact do you want on your profile");
 					String attribute = scanner.next();
-					controller.addAttributes(attribute);
+					boolean add = controller.addAttributes(attribute);
+					if(add)
+						System.out.println("Added Attribute");
+					else
+						System.out.println("Failed to add attribute");
 					
 				}
 
@@ -250,9 +269,13 @@ public class MyMain {
 					System.out.println("Enter a name for the journal");
 					String name = scanner.next();
 					MyJournal j = (MyJournal) controller.createJournal();
-					j.editName(name);
-					System.out.println("Your journal " + name + " was created with the id of " + j.journalID);
-
+					if(j != null)
+					{
+						j.editName(name);
+						System.out.println("Your journal " + name + " was created with the id of " + j.journalID);
+					}
+					else
+						System.out.println("Failed to create Journal with name of " + name);
 				}
 				
 				//rate trip
@@ -267,6 +290,8 @@ public class MyMain {
 					if(!rate){
 						System.out.println("Rating was not successful");
 					}
+					else
+						System.out.println("Rated Log " + tid + " " + rating + " stars out of 5");
 					
 				}
 				
@@ -278,8 +303,37 @@ public class MyMain {
 					if(!delete){
 						System.out.println("Journal was not deleted");
 					}
+					else
+						System.out.println("Journal deleted");
 
 				}
+				
+				//sort by date
+				if(temp.equals("16")){
+	
+					List<TravelLog> allLogs = controller.sortDate();
+					for(TravelLog tl : allLogs){
+						
+						MyTravelLog tmp = (MyTravelLog)tl; //allLogs.get(i);
+						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
+								+ "\t Distance to Destination: "+ tmp.distance + "\t Destination Weather: " + tmp.locationWeather +
+								"\t Rating out of 5: " + tmp.myRating + "\t Travel Method: " + tmp.travelMethod);
+					}
+				}
+				
+				//sort by rating
+				if(temp.equals("17")){
+	
+					List<TravelLog> allLogs = controller.sortRating();
+					for(TravelLog tl : allLogs){
+						
+						MyTravelLog tmp = (MyTravelLog)tl; //allLogs.get(i);
+						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
+								+ "\t Distance to Destination: "+ tmp.distance + "\t Destination Weather: " + tmp.locationWeather +
+								"\t Rating out of 5: " + tmp.myRating + "\t Travel Method: " + tmp.travelMethod);
+					}
+				}
+				
 				//view user's attribute
 				if(temp.equals("15")){
 					String attri = controller.keeper.currentLoggedIn.attribute;

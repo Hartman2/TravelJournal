@@ -33,23 +33,23 @@ public class MyTravelLog implements TravelLog {
 
 	@Override
 	public int create(String destination, Date date) {
-		// TODO Auto-generated method stub
+		
 		this.destination = destination;
 		this.date = date;
-		// (int)(Math.random()*100)
-		id = destination.length();
+		id = (int)(Math.random()*100);//destination.length();
 		return id;
 	}
 	
 	@Override
+	//can be expanded if further fields are added
 	public int getData() {
-		// TODO Auto-generated method stub
+		
 		return distance;
 	}
 
 	@Override
 	public TravelLog createNew(String destination) {
-		// TODO Auto-generated method stub
+		//Unused
 		return null;
 	}
 
@@ -63,7 +63,7 @@ public class MyTravelLog implements TravelLog {
 	public boolean rateTrip(int rating) {
 		
 		myRating = rating;
-		return true;
+		return myRating == rating;
 	}
 	
 	@Override

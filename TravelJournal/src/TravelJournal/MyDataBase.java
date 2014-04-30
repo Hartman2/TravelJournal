@@ -8,10 +8,15 @@ import java.util.List;
 
 public class MyDataBase implements DataBase {
 
+	//HashMap for the users journals
 	HashMap<Integer, Journal> journals = new HashMap<Integer, Journal>();
+	//array of the users
 	ArrayList<MyUsers> users = new ArrayList<MyUsers>(); 
+	//array for the items on the wish list
 	ArrayList<String> wishList = new ArrayList<String>();
+	//array for trips the user is planning
 	ArrayList<MyTravelLog> plannedTrip = new ArrayList<MyTravelLog>();
+	//empty constructor to create new objects for
 	MyDataBase()
 	{
 		
@@ -39,8 +44,8 @@ public class MyDataBase implements DataBase {
 
 	@Override
 	public boolean putUser(Users u) {
-		users.add((MyUsers) u);
-		return true;
+		
+		return users.add((MyUsers) u);
 	}
 
 	@Override
@@ -65,7 +70,7 @@ public class MyDataBase implements DataBase {
 	public boolean putJournal(Journal j) {
 		int key = j.getID();
 		journals.put(key, j);
-		return true;
+		return journals.containsKey(key);
 	}
 	
 	@Override
@@ -79,17 +84,20 @@ public class MyDataBase implements DataBase {
 		}
 		return j;
 	}
+	
 	@Override
 	public boolean storeWishList(String destination) {
 		boolean wish = wishList.add(destination);
 		return wish;
 	}
+	
 	@Override
 	public boolean storeFutureTrip(TravelLog tl) {
 		
 		boolean trip = plannedTrip.add((MyTravelLog) tl);
 		return trip;
 	}
+	
 	@Override
 	public boolean removeJournal(int id) {
 		
@@ -99,6 +107,7 @@ public class MyDataBase implements DataBase {
 		else
 			return true;
 	}
+	
 	@Override
 	public List<String> viewWishList() {
 		
