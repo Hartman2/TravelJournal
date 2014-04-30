@@ -34,8 +34,8 @@ public class MyUsers implements Users {
 	public boolean modifyLog(int jid, int id, String field, String toChange) {
 		
 		Journal toEdit = db.getJournal(jid);
-		TravelLog tl = toEdit.getLog(id);//need new id field
-		boolean success = toEdit.modifyLog(tl, field, toChange); //needs extra parameters
+		TravelLog tl = toEdit.getLog(id);
+		boolean success = toEdit.modifyLog(tl, field, toChange);
 		db.putJournal(toEdit);
 		
 		return success;
@@ -58,19 +58,19 @@ public class MyUsers implements Users {
 
 	@Override
 	public boolean modifyLog(TravelLog t) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean deleteLog(int id) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean createJournal() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -80,15 +80,16 @@ public class MyUsers implements Users {
 		username = name;
 		this.password = password;
 		
-		return false;
+		return username.equals(name);
 	}
 
 	@Override
 	public boolean modify(String field, String change) {
 
-		attribute = change;
+		if(field.equals("attribute"))
+			attribute = change;
 
-		return true;
+		return attribute.equals(change);
 	}	
 	
 	/*********************ITERANTION 2 ********************************************/
@@ -130,7 +131,6 @@ public class MyUsers implements Users {
 		
 		MyTravelLog log = new MyTravelLog();
 		log.createNew(destination);
-		//db.storeFutureTrip(log);
 		
 		return db.storeFutureTrip(log);
 	}
@@ -163,7 +163,19 @@ public class MyUsers implements Users {
 		List<TravelLog> toReturn = new ArrayList<TravelLog>();
 		for(Journal journal : j)
 		{
-			toReturn.addAll(journal.sort("Rating"));
+			List<TravelLog> tmp = journal.sort("Rating");
+			if(toReturn.size() == 0)
+				toReturn.addAll(tmp);
+			else
+			{
+				for(TravelLog t : tmp)
+				{
+					int i = 0;
+					while(i< toReturn.size() && t.getRating() < toReturn.get(i).getRating())
+						i++;
+					toReturn.add(i, t);
+				}
+			}
 		}
 		return toReturn;
 	}
@@ -172,14 +184,15 @@ public class MyUsers implements Users {
 	public boolean addAttributes(String attribute) {
 
 		this.attribute = attribute;
-		return true;
+		return this.attribute.equals(attribute);
 	}
 
 	@Override
 	public Journal createJournalAlt() {
 		
 		Journal j = new MyJournal();
-		j.create();
+		int jid = j.create();
+		System.out.println("New Journal with id: " + jid);
 		db.putJournal(j);
 		return j;
 	}
