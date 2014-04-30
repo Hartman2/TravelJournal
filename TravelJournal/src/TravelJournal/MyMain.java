@@ -42,7 +42,13 @@ public class MyMain {
 		controller.addWish("Florida");
 		//controller.modifyLog(travelLogId, "destination", "Paraguay");
 		controller.addWish("Canada");
-		System.out.println("Journal id is " + journal.journalID);
+//		System.out.println("Journal1 id is " + journal.journalID);
+//		System.out.println("Journal2 id is " + journal2.journalID);
+		System.out.println("Alaska id is " + travelLogId);
+		System.out.println("Ames id  id is " + travelLogId2);
+		System.out.println("Alaska2 id is " + travelLogId3);
+		System.out.println("Ames1 id  id is " + travelLogId4);
+
 		controller.rateTrip(journal.journalID, travelLogId,5);
 		controller.rateTrip(journal.journalID, travelLogId2,4);
 		controller.rateTrip(journal2.journalID, travelLogId3,3);
@@ -94,7 +100,7 @@ public class MyMain {
 				System.out.println("To modify a travel log press 2");
 				System.out.println("To delete a travel log press 3");
 				System.out.println("To view all travel logs press 4");
-				System.out.println("To view total distance traveled press 5");
+				System.out.println("To view all data(total distance) 5");
 				System.out.println("To add item to wish list press 6");
 				System.out.println("To view wishlist press 7");
 				System.out.println("To Plan trip press 8");
@@ -232,8 +238,14 @@ public class MyMain {
 				//view total distance
 				if(temp.equals("9")){
 	
-					int totalDistance = controller.viewData();
-					System.out.println("Total Traveled Distance is " + totalDistance);
+					System.out.println("Enter Journal id");
+					int jid = scanner.nextInt();
+					System.out.println("Enter Travel Log id");
+					int tid = scanner.nextInt();
+					int tripDistance = controller.viewTripDistance(tid, jid);
+					
+					System.out.println("Trip with id: " + tid + " has a travel distance of " + tripDistance);
+					
 				}
 
 				//delete account
