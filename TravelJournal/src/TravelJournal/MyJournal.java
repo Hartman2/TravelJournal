@@ -111,7 +111,7 @@ public class MyJournal implements Journal {
 					{
 						i++;
 					}
-					sorted.add(tl);
+					sorted.add(i, tl);
 				}
 			}
 		}
@@ -135,7 +135,7 @@ public class MyJournal implements Journal {
 						if(i < sorted.size())
 							other = sorted.get(i).getRating();
 					}
-					sorted.add(tl);
+					sorted.add(i, tl);
 				}
 			}
 		}
