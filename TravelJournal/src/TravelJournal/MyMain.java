@@ -26,7 +26,7 @@ public class MyMain {
 		
 		Date date = new Date();
 		date.setMonth(6);
-		date.setYear(2015);
+		date.setYear(2015-1900);
 		int travelLogId = controller.createLog("Alaska", date, journal.journalName);
 		int travelLogId2 = controller.createLog("Ames", date, journal.journalName);
 		
@@ -49,10 +49,10 @@ public class MyMain {
 		System.out.println("Alaska2 id is " + travelLogId3);
 		System.out.println("Ames1 id  id is " + travelLogId4);
 
-		controller.rateTrip(journal.journalID, travelLogId,5);
-		controller.rateTrip(journal.journalID, travelLogId2,4);
-		controller.rateTrip(journal2.journalID, travelLogId3,3);
-		controller.rateTrip(journal2.journalID, travelLogId4,2);
+		controller.rateTrip(journal.journalID, travelLogId,1);
+		controller.rateTrip(journal.journalID, travelLogId2,3);
+		controller.rateTrip(journal2.journalID, travelLogId3,5);
+		controller.rateTrip(journal2.journalID, travelLogId4,1);
 		controller.logout("Andrew");
 		
 		Scanner scanner = new Scanner(System.in);
@@ -327,7 +327,7 @@ public class MyMain {
 					for(TravelLog tl : allLogs){
 						
 						MyTravelLog tmp = (MyTravelLog)tl; //allLogs.get(i);
-						System.out.println("Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
+						System.out.println("Date: " + tmp.date + " Destination: "+ tmp.destination + "\t Departure Point: " + tmp.departurePoint 
 								+ "\t Distance to Destination: "+ tmp.distance + "\t Destination Weather: " + tmp.locationWeather +
 								"\t Rating out of 5: " + tmp.myRating + "\t Travel Method: " + tmp.travelMethod);
 					}
