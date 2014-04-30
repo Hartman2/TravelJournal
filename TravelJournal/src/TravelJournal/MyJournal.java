@@ -104,27 +104,39 @@ public class MyJournal implements Journal {
 				Date date = tl.getDate();
 				if(sorted.size() == 0)
 					sorted.add(tl);
-				int i = 0;
-				while(date.before(sorted.get(i).getDate()))
+				else
 				{
-					i++;
+					int i = 0;
+					while(i < sorted.size() && date.before(sorted.get(i).getDate()))
+					{
+						i++;
+					}
+					sorted.add(tl);
 				}
-				sorted.add(tl);
 			}
 		}
 		else if(by.equalsIgnoreCase("Rating"))
 		{
+			int other = 0;
 			for(TravelLog tl : unsorted)
 			{
 				int rate = tl.getRating();
 				if(sorted.size() == 0)
-					sorted.add(tl);
-				int i = 0;
-				while(rate < sorted.get(i).getRating())
 				{
-					i++;
+					sorted.add(tl);
+					other = sorted.get(0).getRating();
 				}
-				sorted.add(tl);
+				else
+				{
+					int i = 0;
+					while(i < sorted.size() && rate < other)
+					{
+						i++;
+						if(i < sorted.size())
+							other = sorted.get(i).getRating();
+					}
+					sorted.add(tl);
+				}
 			}
 		}
 		return sorted;

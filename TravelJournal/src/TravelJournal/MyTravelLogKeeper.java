@@ -77,9 +77,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 	@Override
 	public boolean editUser(String name, String field, String toChange) {
 		
-		data.getUser(name).modify(field, toChange);
-		
-		return true;
+		return data.getUser(name).modify(field, toChange);
 	}
 
 	@Override
@@ -117,7 +115,7 @@ public class MyTravelLogKeeper implements TravelLogKeeper {
 
 	@Override
 	public boolean create() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 	/*********************ITERANTION 2 ********************************************/
