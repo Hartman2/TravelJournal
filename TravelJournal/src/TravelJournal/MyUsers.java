@@ -151,7 +151,19 @@ public class MyUsers implements Users {
 		List<TravelLog> toReturn = new ArrayList<TravelLog>();
 		for(Journal journal : j)
 		{
-			toReturn.addAll(journal.sort("Date"));
+			List<TravelLog> tmp = journal.sort("Date");
+			if(toReturn.size() == 0)
+				toReturn.addAll(tmp);
+			else
+			{
+				for(TravelLog t : tmp)
+				{
+					int i = 0;
+					while(i< toReturn.size() && t.getDate().before(toReturn.get(i).getDate()))
+						i++;
+					toReturn.add(i, t);
+				}
+			}
 		}
 		return toReturn;
 	}
